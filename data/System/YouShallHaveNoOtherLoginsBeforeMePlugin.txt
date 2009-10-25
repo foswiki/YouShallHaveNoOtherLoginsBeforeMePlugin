@@ -1,0 +1,38 @@
+---+!! !You Shall Have No Other Logins Before Me Plugin
+<!--
+One line description, required for extensions repository catalog.
+BuildContrib will fill in the SHORTDESCRIPTION with the value of
+$SHORTDESCRIPTION from the .pm module, or you can redefine it here if you
+prefer.
+   * Set SHORTDESCRIPTION = %$SHORTDESCRIPTION%
+-->
+%SHORTDESCRIPTION%
+
+---++ Usage
+This plugin works behind the scenes. There is no need to configure anything.  
+You want to use this plugin, if you want to make sure, that a single user
+is logged in only once. On each access this plugin checks, if there are 
+other active sessions for the current user. If appropriate sessions are 
+found, those are purged.
+
+%X% Depending on the wikis load, there are alot of sessions to inspect.
+The inspection is an expensive task.
+
+---++ Installation Instructions
+
+%$INSTALL_INSTRUCTIONS%
+
+---++ Info
+
+|  Author(s): | Foswiki:Main.OliverKrueger, [[http://wiki-one.net][(wiki-one.net)]] |
+|  Copyright: | &copy; 2009, Foswiki:Main.OliverKrueger |
+|  License: | [[http://www.gnu.org/licenses/gpl.html][GPL (Gnu General Public License)]] |
+|  Release: | %$RELEASE% |
+|  Version: | %$VERSION% |
+|  Change History: | <!-- versions below in reverse order -->&nbsp; |
+|  25 Oct 2009 | Initial release |
+|  Dependencies: | %$DEPENDENCIES% |
+|  Home page: | http://foswiki.org/bin/view/Extensions/YouShallHaveNoOtherLoginsBeforeMePlugin |
+|  Support: | http://foswiki.org/bin/view/Support/YouShallHaveNoOtherLoginsBeforeMePlugin |
+
+<!-- Do _not_ attempt to edit this topic; it is auto-generated. -->
