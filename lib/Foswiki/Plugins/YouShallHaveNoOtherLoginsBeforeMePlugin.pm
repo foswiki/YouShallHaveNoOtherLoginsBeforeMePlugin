@@ -17,13 +17,12 @@
 package Foswiki::Plugins::YouShallHaveNoOtherLoginsBeforeMePlugin;
 use strict;
 
-use Foswiki::Func    ();    # The plugins API
+use Foswiki::Func ();       # The plugins API
 use Foswiki::Plugins ();    # For the API version
 
 our $VERSION = '$Rev: 5154 $';
 our $RELEASE = '1.0.0';
-our $SHORTDESCRIPTION =
-  'Invalidates existing sessions of the same authenticated user.';
+our $SHORTDESCRIPTION = 'Invalidates existing sessions of the same authenticated user.';
 our $NO_PREFS_IN_TOPIC = 1;
 
 sub initPlugin {
@@ -46,25 +45,25 @@ sub initPlugin {
         # of if a different Driver is used (not File)
         # This should probably be done with CGI::Session::Driver->traverse()
         my $workingDir = "$Foswiki::cfg{WorkingDir}/tmp";
-        my @list       = ();
-        if ( opendir( DIR, "$workingDir" ) ) {
+        my @list = (); 
+        if ( opendir( DIR, "$workingDir" ) ) { 
             my @files =
-              grep { /^cgisess_.*$/ } readdir(DIR);
-            closedir DIR;
+            grep { /^cgisess_.*$/ } readdir(DIR);
+            closedir DIR; 
             @list = map { s/^cgisess_(.*)$/$1/; $_ } @files;
         }
 
         # peek into every session excl the current
         # invalidate the session if it has the same AUTHUSER
-        foreach my $sid (@list) {
+        foreach my $sid ( @list ) {
             next if ( $sid eq $current_sid );
-            my $session =
-              CGI::Session->new( undef, $sid, { Directory => $workingDir } );
+            my $session = CGI::Session->new( undef, $sid, 
+              { Directory => $workingDir } );
             if ( $session->param("AUTHUSER") eq $current_user ) {
                 $session->delete();
             }
         }
-    }
+    } 
 
     # Plugin correctly initialized
     return 1;
